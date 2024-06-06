@@ -6,20 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Supplier extends Model
+class Type extends Model
 {
     use HasFactory;
-    protected $filleable = [
+    protected $fillable = [
         "name",
-        "image",
-        "email",
-        "phone",
-        "address",
-        "website",
+        "desctiption"
     ];
 
-    public function goodsIns():HasMany
+    public function products():HasMany
     {
-        return $this->hasMany(GoodsIn::class);
+        return $this->hasMany(Product::class);
     }
 }

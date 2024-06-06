@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('goods_ins', function (Blueprint $table) {
-            $table->foreignId('supplier_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+        Schema::create('types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('goods_ins', function (Blueprint $table) {
-            $table->dropForeign('supplier_id');
-        });
+        Schema::dropIfExists('types');
     }
 };

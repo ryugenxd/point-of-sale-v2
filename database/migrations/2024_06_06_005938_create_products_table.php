@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('price');
             $table->bigInteger('quantity')->default(0);
+            $table->boolean('actived')->default(false);
             $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
