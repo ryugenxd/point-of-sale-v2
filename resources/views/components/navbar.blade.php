@@ -29,7 +29,7 @@
             <i class="fas fa-user mr-2"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a onclick="window.location.href=``" class="dropdown-item w-100">
+          <a onclick="window.location.href=`{{route('logout')}}`" class="dropdown-item w-100">
             <i class="fas fa-sign-out-alt mr-2"></i> LogOut
           </a>
         </div>
