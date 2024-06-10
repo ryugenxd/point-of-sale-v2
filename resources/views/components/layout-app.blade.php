@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('theme/plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Ionicons-->
+  <link rel="stylesheet" href="{{asset('ionicons/css/ionic.css')}}">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{asset('theme/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- iCheck -->
@@ -36,9 +36,9 @@
   <script>
     $.widget.bridge('uibutton', $.ui.button)
   </script>
+  <link rel="stylesheet" href="{{asset('theme/dist/css/switch.css')}}">
   <!-- sweetalert -->
   <script src="{{asset('theme/alert/js/sweetalert2.js')}}"></script>
-  <link rel="stylesheet" href="{{asset('theme/dist/css/switch.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -67,7 +67,9 @@
 
          <!-- Main content -->
         <section class="content text-capitalize">
+            <div class="container-fluid">
             {{$slot}}
+            </div>
         </section>
     </div>
     <!-- /.content-wrapper -->
@@ -97,32 +99,7 @@
 <script src="{{asset('theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('theme/dist/js/adminlte.js')}}"></script>
-
-<script>
-  function changeLanguage(lang) {
-    let url = new URL(window.location.href);
-
-    url.searchParams.set("lang", lang);
-    window.location.href = url.toString();
-  }
-  $(document).ready(async () => {
-    let languages = await (await fetch("{{ url(asset('localizations/languages.json')) }}")).json();
-    for (let code in languages) {
-      let native = languages[code].nameNative;
-      let english = languages[code].nameEnglish;
-
-      $("#lang-dropdown").append(`
-        <li onclick="changeLanguage('${ code }')" class="d-flex align-items-center justify-content-start gap-2 px-2">
-          <div class="lang-icon lang-icon-${ code }"></div>
-          <span class="ml-2 text-uppercase" style="font-size: .8rem" data-text="${ english }">${ code }</span>
-        </li>
-      `);
-    }
-  });
-</script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('ionicons/js/ionic.js')}}"></script>
 <!-- <script src="{{asset('theme/dist/js/pages/dashboard.js')}}"></script> -->
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
 </body>
 </html>

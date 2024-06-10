@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('goods_outs', function (Blueprint $table) {
             $table->id();
             $table->integer('quantity');
-            $table->string('invoice_number');
+            $table->string('invoice_number')->unique();
             $table->date('date_out');
             $table->text('description')->nullable();
             $table->boolean('deleted')->default(false);

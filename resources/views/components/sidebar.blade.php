@@ -17,7 +17,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-header">Menu</li>
          <li class="nav-item">
-            <a href="" class="nav-link text-white">
+            <a href="{{route('dashboard')}}" class="nav-link text-white">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  Dashboard
@@ -61,7 +61,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link text-white">
+            <a href="{{route('customers')}}" class="nav-link text-white">
               <i class="nav-icon far fa-user"></i>
               <p>
               Pelanggan
@@ -138,12 +138,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            @foreach($roles as $role)
               <li class="nav-item">
                 <a href="" class="nav-link text-white">
                 <i class="fas fa-angle-right"></i>
-                  <p>Karyawan</p>
+                  <p>{{$role}}</p>
                 </a>
               </li>
+            @endforeach
               <!-- <li class="nav-item">
                 <a href="" class="nav-link text-white">
                 <i class="fas fa-angle-right"></i>

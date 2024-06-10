@@ -5,16 +5,16 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Services\UsersService;
 
-class LayoutApp extends Component
+class Sidebar extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public string $title
-    )
+    public function __construct()
     {
+        //
     }
 
     /**
@@ -22,6 +22,7 @@ class LayoutApp extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout-app');
+        $roles = UsersService::roles();
+        return view('components.sidebar',compact('roles'));
     }
 }

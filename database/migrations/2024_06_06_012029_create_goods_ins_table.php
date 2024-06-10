@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('quantity');
             $table->date('date_received');
-            $table->string('invoice_number');
+            $table->string('invoice_number')->unique();
             $table->text('description')->nullable();
             $table->boolean('deleted')->default(false);
             $table->timestamps();
