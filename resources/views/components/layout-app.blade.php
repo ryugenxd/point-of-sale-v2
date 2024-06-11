@@ -34,6 +34,11 @@
   <script src="{{asset('theme/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $.widget.bridge('uibutton', $.ui.button)
   </script>
   <link rel="stylesheet" href="{{asset('theme/dist/css/switch.css')}}">

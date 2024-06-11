@@ -6,14 +6,15 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UpdateCustomerRequest extends FormRequest
+
+class CreateSupplierRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return $this->user() != null;
+        return $this -> user() != null;
     }
 
     /**
@@ -24,9 +25,11 @@ class UpdateCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=>["required","string","min:3"],
-            "phone"=>["required","string"],
-            "address"=>["required","string"]
+            'name'=>['required','string','min:3'],
+            'phone'=>['required','string'],
+            'address'=>['required','string'],
+            'email'=>['nullable','string'],
+            'website'=>['nullable','string']
         ];
     }
 

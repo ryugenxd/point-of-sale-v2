@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
+use App\Services\ResponService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -35,19 +36,13 @@ class CustomerController extends Controller
 
     public function save(CreateCustomerRequest $request): JsonResponse
     {
+        $data = $request->validated();
         $customers = new Customer();
-        $customers -> name = $request->name;
-        $customers -> phone = $request->phone;
-        $customers -> address = $request->address;
+        $customers -> name = $data['name'];
+        $customers -> phone = $data['phone'];
+        $customers -> address = $data['address'];
         $status = $customers -> save();
-        if(!$status){
-            return response()->json(
-                ["message"=>"Gagal di simpan"]
-            )->setStatusCode(400);
-        }
-        return response() -> json([
-            "message"=>"Berhasil di simpan."
-        ]) -> setStatusCode(200);
+        return ResponService::save($status);
     }
 
     public function detail(int $id): JsonResponse
@@ -72,14 +67,7 @@ class CustomerController extends Controller
         $customer -> phone = $data['phone'];
         $customer -> address = $data['address'];
         $status = $customer -> save();
-        if(!$status){
-            return response()->json(
-                ["message"=>__("Gagal mengubah data")]
-            )->setStatusCode(400);
-        }
-        return response() -> json([
-            "message"=>__("Berhasil mengubah data")
-        ]) -> setStatusCode(200);
+        return ResponService::update($status);
     }
 
     public function delete(int $id): JsonResponse
@@ -89,13 +77,6 @@ class CustomerController extends Controller
             throw new HttpResponseException(response()->json(["message"=>"not found."])->setStatusCode(404));
         }
         $status = $customer -> delete();
-        if(!$status){
-            return response()->json(
-                ["message"=>__("Gagal menghapus data")]
-            )->setStatusCode(400);
-        }
-        return response()->json([
-            "message"=>__("Berhasil menghapus data")
-        ]) -> setStatusCode(200);
+        return ResponService::delete($status);
     }
 }

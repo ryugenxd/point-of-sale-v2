@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[LoginController::class,'index'],'index')->name('login');
@@ -24,8 +25,13 @@ Route::middleware(['auth'])->group(function(){
         // });
     });
 
-    Route::get('/suppliers',function(){
-        return view('suppliers');
+    Route::controller(SupplierController::class)->prefix('/suppliers')->group(function(){
+        Route::get('/','index')->name('suppliers');
+        Route::get('/tabel','tabel')->name('suppliers.tabel');
+        Route::post('/save','save')->name('suppliers.save');
+        Route::get('/detail/{id}','detail')->name('suppliers.detail');
+        Route::put('/update/{id}','update')->name('suppliers.update');
+        Route::delete('/delete/{id}','delete')->name('suppliers.delete');
     });
 
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');

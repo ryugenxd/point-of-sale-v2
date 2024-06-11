@@ -69,7 +69,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link text-white">
+            <a href="{{route('suppliers')}}" class="nav-link text-white">
               <i class="nav-icon fas fa-shipping-fast"></i>
               <p>
                Pemasok

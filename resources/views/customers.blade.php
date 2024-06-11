@@ -18,7 +18,7 @@
                         </div>
                     </div>
 
-                    <!-- Modal -->
+                <!-- Modal -->
                 <div class="modal fade" id="TambahData" tabindex="-1" aria-labelledby="TambahDataModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -30,16 +30,16 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group mb-3">
-                                <label for="name">nama</label>
+                                <label for="name">nama <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="name" autocomplete="off">
                                 <input type="hidden" name="id" id="id">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="phone_number">telp</label>
+                                <label for="phone_number">telp <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="phone_number" autocomplete="off">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="address">alamat</label>
+                                <label for="address">alamat <span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="address"></textarea>
                             </div>
                         </div>
@@ -73,11 +73,6 @@
     </div>
     <x-body-data-table />
     <script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     function Table (){
         $("#data-tabel").DataTable({
@@ -138,7 +133,16 @@
                     $('#data-tabel').DataTable().ajax.reload();
                 },
                 error:function(err){
-                    console.log(err);
+                    if(err.status == 400){
+                        Swal.fire({
+                            position: "center",
+                            icon: "warning",
+                            title: "Oops...",
+                            text:"Harap isi semua inputan",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
                 },
 
             });
@@ -170,7 +174,16 @@
                     $('#simpan').text("simpan");
                 },
                 error:function(err){
-                    console.log(err.responJson.text);
+                   if(err.status == 400){
+                        Swal.fire({
+                            position: "center",
+                            icon: "warning",
+                            title: "Oops...",
+                            text:"Harap isi semua inputan",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
                 },
 
             });
