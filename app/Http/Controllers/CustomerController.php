@@ -37,11 +37,11 @@ class CustomerController extends Controller
     public function save(CreateCustomerRequest $request): JsonResponse
     {
         $data = $request->validated();
-        $customers = new Customer();
-        $customers -> name = $data['name'];
-        $customers -> phone = $data['phone'];
-        $customers -> address = $data['address'];
-        $status = $customers -> save();
+        $customer = new Customer();
+        $customer-> name = $data['name'];
+        $customer -> phone = $data['phone'];
+        $customer -> address = $data['address'];
+        $status = $customer -> save();
         return ResponService::save($status);
     }
 

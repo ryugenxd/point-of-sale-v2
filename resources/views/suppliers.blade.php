@@ -83,169 +83,76 @@
             </div>
         </div>
         <x-body-data-table />
+        <x-fetch-prototype/>
         <script>
-        function Table (){
-            $("#data-tabel").DataTable({
-            responsive: true, lengthChange: true, autoWidth: false,
-            processing:true,
-            serverSide:true,
-            ajax:`{{route('suppliers.tabel')}}`,
-            columns:[
-                    {
-                        "data":null,"sortable":false,
-                        render:function(data,type,row,meta){
-                            return meta.row + meta.settings._iDisplayStart+1;
-                        }
-                    },
-                    {
-                        data:'name',
-                        name:'name'
-                    },
-                    {
-                        data:'phone',
-                        name:'phone',
-                    },
-                     {
-                        data:'email',
-                        name:'email',
-                        render:function(data){
-                            if(data == null){
-                                return "<span class='font-weight-bold text-center'>-</span>";
-                            }
-                            return data;
-                        }
-                    }
-                    ,
-                    {
-                        data:'website',
-                        name:'website',
-                        render:function(data){
-                            if(data == null){
-                                return "<span class='font-weight-bold text-center'>-</span>";
-                            }
-                            return data;
-                        }
-                    }
-                    ,
-                    {
-                        data:'address',
-                        name:'address',
-                    },
-                    {
-                        data:'action',
-                        name:'action'
-                    }
-                ]
-            }).button().container();
-        }
 
-        function save(){
-            $.ajax({
-                url:`{{url('/')}}/suppliers/save`,
-                type:"post",
-                contenType:"json",
-                data:{
-                    name:$("#name").val(),
-                    phone:$("#phone_number").val(),
-                    address:$("#address").val(),
-                    email:$("#email").val(),
-                    website:$("#website").val(),
-                },
-                success:function(res){
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: res.message,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    $('#kembali').click();
-                    $("#name").val(null);
-                    $("#phone_number").val(null);
-                    $("#address").val(null);
-                    $("#website").val(null);
-                    $("#email").val(null);
-                    $('#data-tabel').DataTable().ajax.reload();
-                },
-                error:function(err){
-                    if(err.status == 400){
-                        Swal.fire({
-                            position: "center",
-                            icon: "warning",
-                            title: "Oops...",
-                            text:"Harap isi semua inputan",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                },
+        const CallBack = function(){$("#name").val(null);$("#phone_number").val(null);$("#address").val(null);$("#website").val(null);$("#email").val(null);}
 
-            });
-        }
-
-        function update(){
-            let id = $("#id").val();
-            $.ajax({
-                url: '{{url('/')}}/suppliers/update/'+id,
-                contenType:"json",
-                type:"put",
-                data:{
-                    name:$("#name").val(),
-                    phone:$("#phone_number").val(),
-                    address:$("#address").val(),
-                    email:$("#email").val(),
-                    website:$("#website").val(),
-                },
-                success:function(res){
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: res.message,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    $('#kembali').click();
-                    $("#name").val(null);
-                    $("#phone_number").val(null);
-                    $("#address").val(null);
-                    $("#website").val(null);
-                    $("#email").val(null);
-                    $('#data-tabel').DataTable().ajax.reload();
-                    $('#simpan').text("simpan");
-                },
-                error:function(err){
-                    if(err.status == 400){
-                        Swal.fire({
-                            position: "center",
-                            icon: "warning",
-                            title: "Oops...",
-                            text:"Harap isi semua inputan",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                },
-            });
-        }
 
         $(document).ready(function(){
-            Table();
+            Fetch.tabel(`{{route('suppliers.tabel')}}`,[
+            {
+                "data":null,"sortable":false,
+                render:function(data,type,row,meta){
+                    return meta.row + meta.settings._iDisplayStart+1;
+                }
+            },{
+                data:'name',
+                name:'name'
+            },{
+                data:'phone',
+                name:'phone',
+            },{
+                data:'email',
+                name:'email',
+                render:function(data){
+                        if(data == null){
+                             return "<span class='font-weight-bold text-center'>-</span>";
+                        }
+                    return data;
+                }
+            },{
+                data:'website',
+                name:'website',
+                render:function(data){
+                    if(data == null){
+                        return "<span class='font-weight-bold text-center'>-</span>";
+                    }
+                    return data;
+                }
+            },
+            {
+                data:'address',
+                name:'address',
+            },
+            {
+                data:'action',
+                name:'action'
+            }]);
 
             $('#simpan').on('click',function(){
                 if($(this).text() === "ubah"){
-                    update();
+                    Fetch.update('suppliers',{
+                        name:$("#name").val(),
+                        phone:$("#phone_number").val(),
+                        address:$("#address").val(),
+                        email:$("#email").val(),
+                        website:$("#website").val()
+                    },CallBack);
                 }else{
-                    save();
+                    Fetch.save('suppliers',{
+                        name:$("#name").val(),
+                        phone:$("#phone_number").val(),
+                        address:$("#address").val(),
+                        email:$("#email").val(),
+                        website:$("#website").val()
+                    },CallBack);
                 }
             });
 
             $("#modal-button").on("click",function(){
                 $("#TambahDataModalLabel").text("Tambah Data Pemasok");
-                $("#name").val(null);
-                $("#phone_number").val(null);
-                $("#address").val(null);
-                 $("#email").val(null);
-                $("#website").val(null);
+                CallBack();
                 $("#simpan").text("simpan");
             });
 
@@ -268,44 +175,7 @@
                 });
             });
 
-            $(document).on("click",".delete",function(){
-                let id = $(this).attr('id');
-                const swalWithBootstrapButtons = Swal.mixin({
-                    customClass: {
-                        confirmButton: "btn btn-success m-1",
-                        cancelButton: "btn btn-danger m-1"
-                    },
-                    buttonsStyling: false
-                });
-                swalWithBootstrapButtons.fire({
-                    title: "anda yakin ?",
-                    text: "data ini akan di hapus",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "ya, hapus",
-                    cancelButtonText: "tidak, kembali !",
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url:`{{url('/')}}/suppliers/delete/${id}`,
-                            type:"delete",
-                            success:function(res){
-                                Swal.fire({
-                                        position: "center",
-                                        icon: "success",
-                                        title: res.message,
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                });
-                                $('#data-tabel').DataTable().ajax.reload();
-                            }
-                        });
-                    }
-                });
-            });
-
-
+            Fetch.delete("suppliers");
 
         });
         </script>

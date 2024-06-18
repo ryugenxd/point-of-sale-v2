@@ -17,7 +17,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-header">Menu</li>
          <li class="nav-item">
-            <a href="{{route('dashboard')}}" class="nav-link text-white">
+            <a href="{{route('dashboard')}}" class="nav-link text-white {{request()->routeIs('dashboard')?"bg-indigo text-bold":''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                  Dashboard
@@ -25,8 +25,8 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link text-white">
+          <li class="nav-item  {{request()->routeIs('goods.*')?'menu-open':''}}">
+            <a href="javascript:void(0)" class="nav-link text-white {{request()->routeIs('goods.*')?'bg-indigo text-bold':''}}">
               <i class="nav-icon fas fa-box"></i>
               <p>
               Master Barang
@@ -35,19 +35,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link text-white">
+                <a href="{{route('goods.types')}}" class="nav-link text-white {{request()->routeIs('goods.types')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                  <p>Jenis</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-white">
+                <a href="{{route('goods.units')}}" class="nav-link text-white {{request()->routeIs('goods.units')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                   <p>Satuan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-white">
+                <a href="{{route('goods.brands')}}" class="nav-link text-white {{request()->routeIs('goods.brands')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                   <p>Merk</p>
                 </a>
@@ -61,7 +61,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{route('customers')}}" class="nav-link text-white">
+            <a href="{{route('customers')}}" class="nav-link text-white {{request()->routeIs('customers')?'bg-indigo text-bold':''}}">
               <i class="nav-icon far fa-user"></i>
               <p>
               Pelanggan
@@ -69,7 +69,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('suppliers')}}" class="nav-link text-white">
+            <a href="{{route('suppliers')}}" class="nav-link text-white {{request()->routeIs('suppliers')?'bg-indigo text-bold':''}}">
               <i class="nav-icon fas fa-shipping-fast"></i>
               <p>
                Pemasok
@@ -138,20 +138,37 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            @foreach($roles as $role)
-              <li class="nav-item">
-                <a href="" class="nav-link text-white">
-                <i class="fas fa-angle-right"></i>
-                  <p>{{$role}}</p>
-                </a>
-              </li>
-            @endforeach
               <!-- <li class="nav-item">
                 <a href="" class="nav-link text-white">
                 <i class="fas fa-angle-right"></i>
                   <p>web</p>
                 </a>
               </li> -->
+            <li  class="nav-item">
+                <a href="javascript:void(0)" class="nav-link text-white">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                    Kelola Peran
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white">
+                        <i class="fas fa-angle-right"></i>
+                            <p>Atur hak akses</p>
+                        </a>
+                    </li>
+                    @foreach($roles as $role)
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white">
+                        <i class="fas fa-angle-right"></i>
+                        <p>{{$role}}</p>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </li>
               <li class="nav-item">
                 <a href="" class="nav-link text-white">
                 <i class="fas fa-angle-right"></i>
