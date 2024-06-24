@@ -19,7 +19,7 @@ class SupplierController extends Controller
         return view('suppliers');
     }
 
-    public function tabel(Request $request):JsonResponse
+    public function table(Request $request):JsonResponse
     {
         $suppliers = Supplier::latest()->get();
         if($request->ajax()){

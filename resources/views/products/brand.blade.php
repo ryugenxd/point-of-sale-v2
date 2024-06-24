@@ -1,18 +1,19 @@
-<x-layout-app title="Jenis">
+<x-layout-app title="Merk">
     <x-head-data-table/>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card w-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card w-100">
+
                         <div class="card-header row">
                             <div class="d-flex justify-content-between align-items-center w-100 flex-wrap">
                                 <div class="p-3">
-                                    <h1 class="text-bold">Jenis</h1>
+                                    <h1 class="text-bold">Merk</h1>
                                 </div>
                                 <div>
                                     <button class="btn btn-success" type="button" data-toggle="modal"
                                         data-target="#TambahData" id="modal-button"><i class="fas fa-plus"></i>
-                                        Tambah Jenis
+                                        Tambah Merk
                                     </button>
                                 </div>
                             </div>
@@ -22,7 +23,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="TambahDataModalLabel">Tambah Data Jenis</h5>
+                                    <h5 class="modal-title" id="TambahDataModalLabel">Tambah Data Merk</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true" onclick="clear()" >&times;</span>
                                     </button>
@@ -46,6 +47,7 @@
                             </div>
                         </div>
 
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="data-tabel" width="100%"
@@ -61,51 +63,53 @@
                                 </table>
                             </div>
                         </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <x-fetch-prototype/>
     <x-body-data-table/>
+    <x-fetch-prototype/>
     <script>
     $(document).ready(function(){
-        Fetch.tabel(`{{route('types.tabel')}}`,[
-        {
-            "data":null,"shortable":false,
-            render:function(data,type,row,meta){
-                return meta.row + meta.settings._iDisplayStart+1;
+
+        Fetch.tabel(`{{route('brands.tabel')}}`,[
+            {
+                "data":null,"sortable":false,
+                render:function(data,type,row,meta){
+                    return meta.row + meta.settings._iDisplayStart+1;
+                }
+            },
+            {
+                data:'name',
+                name:'name'
+            },
+            {
+                data:'description',
+                name:'description',
+                render:function(data){
+                    if(data == null) return  "<span class='font-weight-bold text-center'>-</span>";
+                            return data;
+                }
+            },
+            {
+                data:"action",
+                name:"action"
             }
-        },
-        {
-            data:'name',
-            name:'name'
-        },
-        {
-            data:'description',
-            name:'description',
-            render:function(data){
-                if(data == null) return "<span class='font-weight-bold text-center'>-</span>";
-                return data;
-            }
-        },
-        {
-            data:"action",
-            name:"action"
-        }
         ]);
 
         const CallBack = function(){$("#name").val(null);$("#description").val(null);};
 
         $('#simpan').on('click',function(){
             if($(this).text() === "ubah"){
-                Fetch.update('goods/types',{name:$("#name").val(),description:$("#description").val()},CallBack);
+                Fetch.update('products/brands',{name:$("#name").val(),description:$("#description").val()},CallBack);
             }else{
-                Fetch.save("goods/types", {name:$("#name").val(),description:$("#description").val()},CallBack);
+                Fetch.save("products/brands", {name:$("#name").val(),description:$("#description").val()},CallBack);
             }
         });
 
         $("#modal-button").on("click",function(){
-            $("#TambahDataModalLabel").text("Tambah Data Jenis");
+            $("#TambahDataModalLabel").text("Tambah Data Merk");
             CallBack();
             $("#simpan").text("simpan");
         });
@@ -113,10 +117,10 @@
         $(document).on("click",".update",function(){
             let id = $(this).attr('id');
             $("#modal-button").click();
-            $("#TambahDataModalLabel").text("Ubah Data Jenis");
+            $("#TambahDataModalLabel").text("Ubah Data Merk");
             $("#simpan").text("ubah");
             $.ajax({
-                url:'{{url('/')}}/goods/types/detail/'+id,
+                url:'{{url('/')}}/products/brands/detail/'+id,
                 type:"get",
                 success:function({data}){
                     $("#id").val(data.id);
@@ -126,7 +130,7 @@
             });
         });
 
-        Fetch.delete('goods/types');
+        Fetch.delete('products/brands');
 
     });
     </script>

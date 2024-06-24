@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         $role = Role::where('name','super admin')->first();
         User::create([
             'name'=>'super admin',
-            'username'=>'super_admin',
+            'username'=>'superadmin',
             'password'=>bcrypt('12345678'),
             'role_id'=> $role->id
         ]);

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Products;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Requests\CreateTypeRequest;
@@ -18,10 +19,10 @@ class TypeController extends Controller
 {
     public function index(): View
     {
-        return view('goods.type');
+        return view('products.type');
     }
 
-    public function tabel(Request $request):JsonResponse
+    public function table(Request $request):JsonResponse
     {
         $types = Type::latest()->get();
         if($request->ajax()){

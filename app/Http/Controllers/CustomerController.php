@@ -19,7 +19,7 @@ class CustomerController extends Controller
         return view('customers');
     }
 
-    public function tabel(Request $request):JsonResponse
+    public function table(Request $request):JsonResponse
     {
         $customers = Customer::latest()->get();
         if($request -> ajax()){

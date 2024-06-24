@@ -25,8 +25,8 @@
             </a>
           </li>
 
-          <li class="nav-item  {{request()->routeIs('goods.*')?'menu-open':''}}">
-            <a href="javascript:void(0)" class="nav-link text-white {{request()->routeIs('goods.*')?'bg-indigo text-bold':''}}">
+          <li class="nav-item  {{request()->routeIs('products.*')?'menu-open':''}}">
+            <a href="javascript:void(0)" class="nav-link text-white {{request()->routeIs('products.*')?'bg-indigo text-bold':''}}">
               <i class="nav-icon fas fa-box"></i>
               <p>
               Master Barang
@@ -35,19 +35,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('goods.types')}}" class="nav-link text-white {{request()->routeIs('goods.types')?'bg-indigo text-bold':''}}">
+                <a href="{{route('products.types')}}" class="nav-link text-white {{request()->routeIs('products.types')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                  <p>Jenis</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('goods.units')}}" class="nav-link text-white {{request()->routeIs('goods.units')?'bg-indigo text-bold':''}}">
+                <a href="{{route('products.units')}}" class="nav-link text-white {{request()->routeIs('products.units')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                   <p>Satuan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('goods.brands')}}" class="nav-link text-white {{request()->routeIs('goods.brands')?'bg-indigo text-bold':''}}">
+                <a href="{{route('products.brands')}}" class="nav-link text-white {{request()->routeIs('products.brands')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                   <p>Merk</p>
                 </a>

@@ -3046,10 +3046,6 @@ script {
  *  user zoom.
  */
 html {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   font-family: sans-serif;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -3307,7 +3303,7 @@ table {
   box-sizing: border-box; }
 
 html {
-  overflow: hidden;
+
   -ms-touch-action: pan-y;
   touch-action: pan-y; }
 
@@ -3329,7 +3325,7 @@ body,
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+
   margin: 0;
   padding: 0;
   color: #000;
@@ -3355,7 +3351,7 @@ body.grade-c {
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+
   margin-top: -1px;
   padding-top: 1px;
   margin-bottom: -1px;
@@ -3368,7 +3364,7 @@ body.grade-c {
 .scroll-view {
   position: relative;
   display: block;
-  overflow: hidden;
+
   margin-top: -1px; }
   .scroll-view.overflow-scroll {
     position: relative; }
@@ -3554,7 +3550,7 @@ ion-infinite-scroll {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  overflow: hidden; }
+    }
 
 .view-container {
   position: absolute;
@@ -3750,7 +3746,7 @@ a.subdued {
   margin-right: 8px;
   width: auto;
   z-index: 11;
-  overflow: hidden; }
+    }
   .action-sheet .button {
     display: block;
     padding: 1px;
@@ -3786,7 +3782,7 @@ a.subdued {
   margin-bottom: 8px;
   border-radius: 4px;
   background-color: #fff;
-  overflow: hidden; }
+    }
   .action-sheet-group .button {
     border-width: 1px 0px 0px 0px; }
   .action-sheet-group .button:first-child:last-child {
@@ -3997,7 +3993,7 @@ a.subdued {
     right: 0;
     left: 0;
     z-index: 0;
-    overflow: hidden;
+
     margin: 0 10px;
     min-width: 30px;
     height: 43px;
@@ -5051,7 +5047,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   -ms-flex: 1;
   flex: 1;
   display: block;
-  overflow: hidden;
+
   max-width: 150px;
   height: 100%;
   color: inherit;
@@ -5211,7 +5207,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   top: 0;
   bottom: 0;
   z-index: 0;
-  overflow: hidden;
+
   min-height: 100%;
   max-height: 100%;
   width: 275px;
@@ -5229,7 +5225,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 .menu-open .menu-content .pane,
 .menu-open .menu-content .scroll-content {
   pointer-events: none;
-  overflow: hidden; }
+    }
 
 .grade-b .menu-content,
 .grade-c .menu-content {
@@ -5388,7 +5384,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   top: -17px;
   width: 30px;
   height: 19px;
-  overflow: hidden; }
+    }
   .platform-ios .popover-arrow:after {
     position: absolute;
     top: 12px;
@@ -5890,7 +5886,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 .item-content h5,
 .item-content h6,
 .item-content p {
-  overflow: hidden;
+
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -6558,7 +6554,7 @@ button.item.item-button-right {
  */
 .card,
 .list-inset {
-  overflow: hidden;
+
   margin: 20px 10px;
   border-radius: 2px;
   background-color: #fff; }
@@ -6700,7 +6696,7 @@ button.item.item-button-right {
 .slider {
   position: relative;
   visibility: hidden;
-  overflow: hidden; }
+    }
 
 .slider-slides {
   position: relative;
@@ -6765,7 +6761,7 @@ button.item.item-button-right {
 .swiper-container {
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
+
   /* Fix of Webkit flickering */
   z-index: 1; }
 
@@ -7229,7 +7225,7 @@ ion-slides {
   width: 100%;
   height: 100%;
   padding: 0;
-  overflow: hidden; }
+    }
 
 .swiper-wrapper {
   position: absolute;
@@ -7255,7 +7251,7 @@ ion-slides {
   top: -60px;
   right: 0;
   left: 0;
-  overflow: hidden;
+
   margin: auto;
   height: 60px; }
   .scroll-refresher .ionic-refresher-content {
@@ -7477,7 +7473,7 @@ textarea {
   -moz-align-items: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+
   padding: 6px 0 5px 16px; }
   .item-input input {
     -webkit-border-radius: 0;
@@ -7537,7 +7533,7 @@ textarea {
   -moz-align-items: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
+
   padding: 10.66667px; }
 
 .item-input-wrapper {
@@ -7606,7 +7602,7 @@ textarea {
   background-color: #fff; }
 
 .item-stacked-label input {
-  overflow: hidden;
+
   height: 46px; }
 
 .item-select.item-stacked-label select {
@@ -8180,7 +8176,7 @@ input:checked + .checkbox-icon:after {
  */
 .range input {
   display: inline-block;
-  overflow: hidden;
+
   margin-top: 5px;
   margin-bottom: 5px;
   padding-right: 2px;
@@ -8870,7 +8866,7 @@ a.button {
   -ms-flex: 1;
   flex: 1;
   display: block;
-  overflow: hidden;
+
   padding: 0 16px;
   width: 0;
   border-width: 1px 0px 1px 1px;
@@ -9252,7 +9248,7 @@ a.button {
   z-index: 99999;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  overflow: hidden; }
+    }
 
 .click-block-hide {
   -webkit-transform: translate3d(-9999px, 0, 0);

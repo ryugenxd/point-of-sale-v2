@@ -69,20 +69,6 @@
         </div>
 
 
-        @foreach($users as $user)
-        <div class="col-lg-3 col-6">
-            <div class="small-box bg-primary">
-                <div class="inner">
-                    <h3>{{ $user["count"]}}</h3>
-                    <p class="font-weight-bold">{{ $user["name"]}}</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-android-person"></i>
-                </div>
-                <a href="" class="small-box-footer">Lainnya<i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        @endforeach
 
 
     </div>
@@ -91,11 +77,27 @@
         <section class="col-lg-5">
             <div class="card">
                 <div  class="card-header">
-                <p class="fw-bold fs-6">Lacak Transaksi</p>
+                <p class="fw-bold fs-6 text-bold">Daftar Peran</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
+                            <table class="table w-100">
+                                <thead>
+                                    <tr>
+                                        <th class="text-bold">Nama</th>
+                                        <th class="text-bold">Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($users as $user)
+                                    <tr>
+                                        <td>{{$user['name']}}</td>
+                                        <td>{{$user['count']}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -104,16 +106,16 @@
         <section class="col-lg-7">
             <div class="card">
                 <div class="card-header">
-                <p class="fw-bold fs-6">Detail Jumlah Barang</p>
+                <p class="fw-bold fs-6 text-bold">Detail Jumlah Barang</p>
                 </div>
                 <div class="card-body">
                     <table width="100%"
                         class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <tr>
-                                <th class="border-bottom-0" width="4%">No</th>
-                                <th class="border-bottom-0">Nama</th>
-                                <th class="border-bottom-0" width="1%">Jumlah</th>
+                                <th class="border-bottom-0 text-bold" width="4%">No</th>
+                                <th class="border-bottom-0 text-bold">Nama</th>
+                                <th class="border-bottom-0 text-bold" width="1%">Jumlah</th>
                             </tr>
                         </thead>
                         <tbody>

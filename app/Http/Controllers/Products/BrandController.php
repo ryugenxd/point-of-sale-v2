@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Products;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
 use App\Models\Brand;
@@ -16,10 +17,10 @@ class BrandController extends Controller
 {
     public function index():View
     {
-        return view('goods.brand');
+        return view('products.brand');
     }
 
-    public function tabel(Request $request):JsonResponse
+    public function table(Request $request):JsonResponse
     {
         $brands = Brand::latest()->get();
         if($request->ajax()){
