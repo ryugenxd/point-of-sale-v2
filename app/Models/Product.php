@@ -33,6 +33,11 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    public function discount():BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
+    }
+
     public function unit():BelongsTo
     {
         return $this->belongsTo(Unit::class);

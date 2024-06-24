@@ -83,7 +83,7 @@
                     <div class="row">
                         <div class="col-12">
                             <table class="table w-100">
-                                <thead>
+                                <thead class="bg-blue">
                                     <tr>
                                         <th class="text-bold">Nama</th>
                                         <th class="text-bold">Jumlah</th>
@@ -96,6 +96,14 @@
                                         <td>{{$user['count']}}</td>
                                     </tr>
                                     @endforeach
+                                    <tr class="p-2">
+                                        <td class="text-bold bg-red">
+                                            Total :
+                                        </td>
+                                        <td class="bg-green text-center text-bold">
+                                            {{$user_all}}
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -111,7 +119,7 @@
                 <div class="card-body">
                     <table width="100%"
                         class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                        <thead>
+                        <thead class="bg-blue">
                             <tr>
                                 <th class="border-bottom-0 text-bold" width="4%">No</th>
                                 <th class="border-bottom-0 text-bold">Nama</th>
