@@ -54,8 +54,8 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="data-tabel" width="100%"
-                                class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
-                                <thead>
+                                class="table table-striped table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                                <thead class="bg-blue text-bold">
                                     <tr>
                                         <th class="border-bottom-0" width="4%">No</th>
                                         <th class="border-bottom-0">Nama</th>

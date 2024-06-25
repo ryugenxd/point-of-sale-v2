@@ -82,25 +82,25 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <table class="table w-100">
+                            <table class="table w-100 table-striped">
                                 <thead class="bg-blue">
                                     <tr>
                                         <th class="text-bold">Nama</th>
-                                        <th class="text-bold">Jumlah</th>
+                                        <th class="text-bold text-center">Jumlah</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($users as $user)
                                     <tr>
                                         <td>{{$user['name']}}</td>
-                                        <td>{{$user['count']}}</td>
+                                        <td class="text-center">{{$user['count']}}</td>
                                     </tr>
                                     @endforeach
-                                    <tr class="p-2">
-                                        <td class="text-bold bg-red">
+                                    <tr class="p-2 bg-secondary">
+                                        <td class="text-bold">
                                             Total :
                                         </td>
-                                        <td class="bg-green text-center text-bold">
+                                        <td class="text-center text-bold">
                                             {{$user_all}}
                                         </td>
                                     </tr>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="card-body">
                     <table width="100%"
-                        class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                        class="table table-striped table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead class="bg-blue">
                             <tr>
                                 <th class="border-bottom-0 text-bold" width="4%">No</th>

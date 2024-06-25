@@ -104,7 +104,6 @@
 <script src="{{asset('theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('theme/dist/js/adminlte.js')}}"></script>
-<script src="{{asset('ionicons/js/ionic.js')}}"></script>
 <!-- <script src="{{asset('theme/dist/js/pages/dashboard.js')}}"></script> -->
 </body>
 </html>
