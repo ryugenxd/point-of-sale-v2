@@ -59,7 +59,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-white">
+                <a href="{{route('products')}}" class="nav-link text-white">
                 <i class="fas fa-angle-right"></i>
                   <p>Barang</p>
                 </a>
@@ -162,7 +162,7 @@
                     <li class="nav-item">
                         <a href="" class="nav-link text-white">
                         <i class="fas fa-angle-right"></i>
-                            <p>Atur hak akses</p>
+                            <p>Hak akses</p>
                         </a>
                     </li>
                     @foreach($roles as $role)
