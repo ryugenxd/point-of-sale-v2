@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="{{asset('theme/plugins/summernote/summernote-bs4.min.css')}}">
   <!-- sweetalert -->
   <link rel="stylesheet" href="{{asset('theme/alert/css/sweetalert2.css')}}">
+  @stack('css')
   <!-- jQuery -->
   <script src="{{asset('theme/plugins/jquery/jquery.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -44,6 +45,7 @@
   <link rel="stylesheet" href="{{asset('theme/dist/css/switch.css')}}">
   <!-- sweetalert -->
   <script src="{{asset('theme/alert/js/sweetalert2.js')}}"></script>
+  @stack('js')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 

@@ -34,6 +34,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('products')}}" class="nav-link text-white">
+                    <i class="fas fa-angle-right"></i>
+                      <p>Barang</p>
+                    </a>
+                </li>
               <li class="nav-item">
                 <a href="{{route('products.types')}}" class="nav-link text-white {{request()->routeIs('products.types')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
@@ -56,12 +62,6 @@
                 <a href="{{route('products.brands')}}" class="nav-link text-white {{request()->routeIs('products.brands')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                   <p>Merk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('products')}}" class="nav-link text-white">
-                <i class="fas fa-angle-right"></i>
-                  <p>Barang</p>
                 </a>
               </li>
             </ul>

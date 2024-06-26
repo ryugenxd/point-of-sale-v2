@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Products;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Brand;
 use App\Models\Product;
 use App\Services\ResponService;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -13,13 +14,17 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Type;
+use App\Models\Unit;
 
 class ProductController extends Controller
 {
     public function index(): View
     {
-        return view('products.index');
+        $types = Type::latest()->get();
+        $units = Unit::latest()->get();
+        $brands = Brand::latest()->get();
+        return view('products.index',compact('types','units','brands'));
     }
 
     public function table(Request $request):JsonResponse

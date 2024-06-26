@@ -1,4 +1,4 @@
-<div>
+@push('css')
 <link
       rel="stylesheet"
       href="{{asset('theme/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}"
@@ -11,4 +11,4 @@
       rel="stylesheet"
       href="{{asset('theme/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}"
     />
-</div>
+@endpush
