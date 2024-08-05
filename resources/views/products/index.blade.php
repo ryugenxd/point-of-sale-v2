@@ -99,5 +99,6 @@
             </div>
         </div>
     </div>
+    <x-image-reader/>
     <x-body-data-table/>
 </x-layout-app>
