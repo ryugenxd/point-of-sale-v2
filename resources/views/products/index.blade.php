@@ -1,5 +1,5 @@
 @push('css')
-<link rel="stylesheet" href="{{asset('select2/dist/css/select2.js')}}"/>
+<link rel="stylesheet" href="{{asset('select2/dist/css/select2.css')}}"/>
 @endpush
 @push('js')
 <script src="{{asset('select2/dist/js/select2.js')}}"></script>
