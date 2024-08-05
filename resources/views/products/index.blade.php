@@ -6,6 +6,7 @@
 @endpush
 <x-layout-app title="Barang">
     <x-head-data-table/>
+    <x-code-generate/>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
