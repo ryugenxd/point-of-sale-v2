@@ -8,6 +8,7 @@ use App\Http\Controllers\Products\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Products\TypeController;
 use App\Http\Controllers\Products\UnitController;
+use App\Http\Controllers\Products\DiscountController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,6 +27,10 @@ Route::middleware(['auth'])->group(function(){
 
     Route::controller(ProductController::class)->prefix('/products')->group(function(){
         Route::get('/','index')->name('products');
+    });
+
+    Route::controller(DiscountController::class)->prefix('/products/discounts')->group(function(){
+        Route::get('/','index')->name('products.discounts');
     });
 
     Route::controller(TypeController::class)->prefix('/products/types')->group(function(){

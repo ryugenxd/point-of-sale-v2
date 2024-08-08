@@ -53,7 +53,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-white">
+                <a href="{{route('products.discounts')}}" class="nav-link text-white {{request()->routeIs('products.discounts')?'bg-indigo text-bold':''}}">
                 <i class="fas fa-angle-right"></i>
                   <p>Diskon</p>
                 </a>
